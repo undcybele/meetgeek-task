@@ -1,0 +1,25 @@
+<div class="chat-bubble" [ngClass]="{'own-message': isOwnMessage()}">
+
+  <div class="message">
+    <div class="user">
+      <img class="pfp" [ngSrc]="profilePicture()" width="30" height="30" alt="pfp">
+      <span class="username">{{ messageData().user }}</span>
+    </div>
+    <div class="content">
+      @if(!!messageData().image){
+        <img class="message-image" [src]="messageData().image" width="200" alt="sentImg">
+      } @else {
+        <p class="message-text">{{ messageData().messageText }}</p>
+      }
+    </div>
+  </div>
+
+  <div class="actions">
+    <button mat-icon-button (click)="openDeleteDialog(messageData().id)">
+      <mat-icon>delete</mat-icon>
+    </button>
+    <button mat-icon-button (click)="copyToClipboard(messageData().messageText)">
+      <mat-icon>content_copy</mat-icon>
+    </button>
+  </div>
+</div>
