@@ -1,4 +1,4 @@
-<div class="messages-container">
+<div class="messages-container" #container>
     @for (message of chatMessages(); track message.id) {
         <app-chat-bubble [messageData]=message></app-chat-bubble>
     } @empty {

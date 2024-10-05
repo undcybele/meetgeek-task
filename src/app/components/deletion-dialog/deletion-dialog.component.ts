@@ -8,6 +8,10 @@ import {
 } from "@angular/material/dialog";
 import {MatButton} from "@angular/material/button";
 
+export interface DialogResult {
+    delete: boolean;
+}
+
 @Component({
   selector: 'app-deletion-dialog',
   standalone: true,
@@ -22,5 +26,13 @@ import {MatButton} from "@angular/material/button";
   styleUrl: './deletion-dialog.component.scss'
 })
 export class DeletionDialogComponent {
-    readonly dialogRef = inject(MatDialogRef<DeletionDialogComponent>);
+    readonly dialogRef = inject(MatDialogRef<DeletionDialogComponent, DialogResult>);
+
+    save() {
+      this.dialogRef.close({delete: true});
+    }
+
+    cancel() {
+      this.dialogRef.close({delete: false});
+    }
 }
