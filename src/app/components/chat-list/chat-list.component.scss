@@ -1,0 +1,14 @@
+:host {
+    height: calc(100vh - 180px);
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.messages-container {
+    max-height: calc(100vh - 180px);
+    overflow-y: auto;
+}
+
+.empty-text {
+    text-align: center;
+}

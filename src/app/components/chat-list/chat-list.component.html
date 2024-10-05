@@ -1,0 +1,7 @@
+<div class="messages-container">
+    @for (message of chatMessages(); track message.id) {
+        <app-chat-bubble [messageData]=message></app-chat-bubble>
+    } @empty {
+        <h1 class="empty-text">There are no messages yet.</h1>
+    }
+</div>
