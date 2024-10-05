@@ -1,0 +1,16 @@
+<div class="message-input-container">
+  <button class="image-button" (click)="sendImageMessage()">
+    Send image
+      <mat-icon class="right-icon">arrow_forward</mat-icon>
+  </button>
+  <div class="input-container">
+    <input class="full-width with-icon"  [formControl]="messageText" placeholder="Type your message here">
+    <button class="inside-button" (click)="sendMessage()">
+      <mat-icon>send</mat-icon>
+    </button>
+  </div>
+  <div class="checkbox-container">
+    <input [(ngModel)]="checkBox" type="checkbox">
+    <span>Check this box if you want to send the message on Enter</span>
+  </div>
+</div>
