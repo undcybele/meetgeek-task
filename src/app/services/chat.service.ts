@@ -1,10 +1,10 @@
-import {Injectable, signal} from '@angular/core';
+import {Injectable, OnDestroy, signal} from '@angular/core';
 import {IMessage} from '../models/IMessage';
 
 @Injectable({
     providedIn: 'root',
 })
-export class ChatService {
+export class ChatService implements OnDestroy {
     messages = signal<IMessage[]>(this.getMessagesFromLocalStorage());
 
     constructor() {
@@ -13,6 +13,10 @@ export class ChatService {
                 this.messages.set(this.getMessagesFromLocalStorage());
             }
         });
+    }
+
+    ngOnDestroy(): void {
+      window.removeEventListener('storage', (event) => {})
     }
 
     sendMessage(newMessage: IMessage): void {
